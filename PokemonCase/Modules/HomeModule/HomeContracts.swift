@@ -12,9 +12,11 @@ protocol HomeInteractorProtocol: AnyObject {
     var delegate: HomeInteractorDelegate? { get set }
     func load()
     func fetchPokemons()
+    func selectPokemons(at index: Int)
 }
 enum HomeInteractorOutput {
     case showFeedPokemons([CombinedArray])
+    case showSelectedPokemonDetail(CombinedArray)
 }
 protocol HomeInteractorDelegate: AnyObject {
     func handleOutput(with output: HomeInteractorOutput)
@@ -22,6 +24,7 @@ protocol HomeInteractorDelegate: AnyObject {
 //MARK: - Prenter
 protocol HomePresenterProtocol: AnyObject {
     func load()
+    func selectPokemon(at index: Int)
 }
 enum HomePresenterOutput {
     case showFeedPokemons([CombinedArray])
@@ -32,7 +35,7 @@ protocol HomeViewProtocol: AnyObject {
 }
 //MARK: - Route
 enum HomeRoute {
-    case detail
+    case detail(CombinedArray)
 }
 protocol HomeRouteProtocol: AnyObject {
     func navigate(to route: HomeRoute)

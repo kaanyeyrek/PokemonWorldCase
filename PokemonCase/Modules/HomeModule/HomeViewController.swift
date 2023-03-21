@@ -71,6 +71,7 @@ extension HomeViewController: UICollectionViewDataSource {
 extension HomeViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
+        presenter.selectPokemon(at: indexPath.item)
     }
 }
 //MARK: - UICollectionViewDelegateFlowLayout Methods
@@ -86,7 +87,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
         return .init(20)
     }
 }
-//MARK: - HomeViewProtocol Handling
+//MARK: - HomeViewProtocol Handling Outputs
 extension HomeViewController: HomeViewProtocol {
     func handleOutput(with output: HomePresenterOutput) {
         switch output {

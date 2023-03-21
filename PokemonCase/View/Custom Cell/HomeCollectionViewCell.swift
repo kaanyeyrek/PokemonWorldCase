@@ -17,7 +17,6 @@ class HomeCollectionViewCell: UICollectionViewCell {
         super.init(frame: frame)
         setSubviews()
         setLayout()
-        setupAnimations()
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -45,13 +44,5 @@ class HomeCollectionViewCell: UICollectionViewCell {
     }
     func setPokemonText(model: CombinedArray) {
         pokemonsName.text = model.name.capitalized
-    }
-    private func setupAnimations() {
-        pokemonsImage.transform = CGAffineTransform(translationX: -200, y: 0)
-        pokemonsName.transform = CGAffineTransform(translationX: 200, y: 0)
-        UIView.animate(withDuration: 1.3, delay: 1.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.1, options: .curveEaseOut) {
-                    self.pokemonsImage.transform = .identity
-                    self.pokemonsName.transform = .identity
-        }
     }
 }

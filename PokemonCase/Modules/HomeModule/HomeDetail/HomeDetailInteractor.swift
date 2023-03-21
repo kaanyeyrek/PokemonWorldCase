@@ -6,3 +6,14 @@
 //
 
 import Foundation
+
+final class HomeDetailInteractor: HomeDetailInteractorProtocol {
+    
+    weak var delegate: HomeDetailInteractorDelegate?
+    
+    init() {}
+    
+    func load() {
+
+    }
+}

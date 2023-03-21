@@ -54,5 +54,9 @@ final class HomeInteractor: HomeInteractorProtocol {
             }
         }
     }
+    func selectPokemons(at index: Int) {
+        let model = combinedArray[index]
+        self.delegate?.handleOutput(with: .showSelectedPokemonDetail(model))
+    }
 }
 

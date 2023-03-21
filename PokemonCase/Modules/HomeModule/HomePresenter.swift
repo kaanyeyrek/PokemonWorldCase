@@ -22,6 +22,9 @@ final class HomePresenter: HomePresenterProtocol {
     func load() {
         interactor.load()
     }
+    func selectPokemon(at index: Int) {
+        interactor.selectPokemons(at: index)
+    }
 }
 //MARK: - HomeInteractorDelegate Handling
 extension HomePresenter: HomeInteractorDelegate {
@@ -29,6 +32,8 @@ extension HomePresenter: HomeInteractorDelegate {
         switch output {
         case .showFeedPokemons(let combinedArray):
             view?.handleOutput(with: .showFeedPokemons(combinedArray))
+        case .showSelectedPokemonDetail(let selectedPokemon):
+            router.navigate(to: .detail(selectedPokemon))
         }
     }
 }
