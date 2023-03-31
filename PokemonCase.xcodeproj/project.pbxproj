@@ -208,6 +208,7 @@
 		CE69E03D29C8807C0086C33B /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				CE95F51C29D5E94F00638A9D /* Base */,
 				CE69E03C29C880070086C33B /* HomeModule */,
 			);
 			path = Modules;
@@ -275,6 +276,13 @@
 				CE43D0C429C9E0B400E2FE3D /* CombinedArray.swift */,
 			);
 			path = "API Model";
+			sourceTree = "<group>";
+		};
+		CE95F51C29D5E94F00638A9D /* Base */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

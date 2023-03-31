@@ -21,7 +21,6 @@ protocol HomeDetailInteractorDelegate: AnyObject {
 //MARK: - Presenter
 protocol HomeDetailPresenterProtocol: AnyObject {
     func load()
-   
 }
 enum HomeDetailPresenterOutput {
 

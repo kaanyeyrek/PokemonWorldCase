@@ -62,8 +62,7 @@ extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ReusableIdentifier.homeIdentifier, for: indexPath) as? HomeCollectionViewCell else { return  UICollectionViewCell() }
         let model = pokemonsModel[indexPath.item]
-        cell.setPokemonImage(model: model)
-        cell.setPokemonText(model: model)
+        cell.setPokemon(model: model)
         return cell
     }
 }
@@ -77,7 +76,7 @@ extension HomeViewController: UICollectionViewDelegate {
 //MARK: - UICollectionViewDelegateFlowLayout Methods
 extension HomeViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width: CGFloat = (view.frame.width)
+        let width: CGFloat = view.frame.width
         return .init(width: width - 40, height: 170)
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {

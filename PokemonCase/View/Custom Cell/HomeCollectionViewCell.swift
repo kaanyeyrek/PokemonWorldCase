@@ -31,18 +31,22 @@ class HomeCollectionViewCell: UICollectionViewCell {
             self.addSubview(elements)
         }
     }
+    // Layout
     private func setLayout() {
         pokemonsImage.anchor(top: self.topAnchor, leading: self.leadingAnchor, bottom: self.bottomAnchor, trailing: nil, padding: .init(top: 5, left: 5, bottom: 5, right: 0), size: .init(width: 150, height: 150))
         pokemonsName.anchor(top: self.topAnchor, leading: nil, bottom: self.bottomAnchor, trailing: self.trailingAnchor, padding: .init(top: 0, left: 0, bottom: 0, right: 40), size: .init(width: 120, height: 50))
     }
-    func setPokemonImage(model: CombinedArray) {
-        if let imageURL = model.image {
-        pokemonsImage.sd_imageIndicator = SDWebImageActivityIndicator.medium
-        pokemonsImage.sd_imageTransition = .fade
-        pokemonsImage.sd_setImage(with: URL(string: imageURL))
-        }
-    }
-    func setPokemonText(model: CombinedArray) {
+    func setPokemon(model: CombinedArray) {
         pokemonsName.text = model.name.capitalized
+        pokemonsImage.setImage(model.image)
+    }
+}
+//MARK: - UIImageView Extension
+extension UIImageView {
+    func setImage(_ urlString: String?) {
+        guard let urlString = urlString else { return }
+        self.sd_imageIndicator = SDWebImageActivityIndicator.medium
+        self.sd_imageTransition = .fade
+        self.sd_setImage(with: URL(string: urlString))
     }
 }

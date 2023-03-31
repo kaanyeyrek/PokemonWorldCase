@@ -8,13 +8,12 @@
 import Foundation
 import Alamofire
 
-// Reusable Request
+// Reusable Core Request
 protocol CoreServiceProtokol: AnyObject {
-    func fetchPokemons<T: Decodable>(endPoint: HTTPEndpoint, completion: @escaping (Result<T, NetworkError>) -> Void)
+    func makeRequest<T: Decodable>(endPoint: HTTPEndpoint, completion: @escaping (Result<T, NetworkError>) -> Void)
 }
-
 final class CoreService: CoreServiceProtokol {
-    func fetchPokemons<T>(endPoint: HTTPEndpoint, completion: @escaping (Result<T, NetworkError>) -> Void) where T : Decodable {
+    func makeRequest<T>(endPoint: HTTPEndpoint, completion: @escaping (Result<T, NetworkError>) -> Void) where T : Decodable {
         var urlComponents = URLComponents()
         urlComponents.scheme = endPoint.scheme
         urlComponents.host = endPoint.host

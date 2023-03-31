@@ -24,7 +24,7 @@ final class HomeInteractor: HomeInteractorProtocol {
     func fetchPokemons() {
         service.fetchPokemons(endPoint: .getPokemons(count: pokemonsCount)) { [weak self] results in
             guard let self = self else { return }
-            DispatchQueue.main.async {
+            DispatchQueue.main.async { // alamofire automatic dispatch
                 switch results {
                 case .success(let pokemons):
                     let pokemonNames = pokemons.results.map { $0.name }

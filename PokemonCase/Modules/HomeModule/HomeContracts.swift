@@ -21,7 +21,7 @@ enum HomeInteractorOutput {
 protocol HomeInteractorDelegate: AnyObject {
     func handleOutput(with output: HomeInteractorOutput)
 }
-//MARK: - Prenter
+//MARK: - Presenter
 protocol HomePresenterProtocol: AnyObject {
     func load()
     func selectPokemon(at index: Int)

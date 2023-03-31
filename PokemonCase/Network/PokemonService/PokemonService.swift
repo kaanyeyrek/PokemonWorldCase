@@ -21,12 +21,12 @@ final class PokemonService: PokemonServiceInterface {
     }
     
     func fetchPokemons(endPoint: PokemonEndpoint, completion: @escaping (Result<PokemonModel, NetworkError>) -> Void) {
-        coreService.fetchPokemons(endPoint: endPoint) { (result: Result<PokemonModel, NetworkError>) in
+        coreService.makeRequest(endPoint: endPoint) { (result: Result<PokemonModel, NetworkError>) in
             completion(result)
         }
     }
     func fetchPokemonsDetail(endPoint: PokemonEndpoint, completion: @escaping (Result<PokemonAbilityModel, NetworkError>) -> Void) {
-        coreService.fetchPokemons(endPoint: endPoint) { (result: Result<PokemonAbilityModel, NetworkError>) in
+        coreService.makeRequest(endPoint: endPoint) { (result: Result<PokemonAbilityModel, NetworkError>) in
             completion(result)
         }
     }

@@ -47,11 +47,7 @@ final class HomeDetailView: UIViewController {
 //MARK: - HomeDetailView Handling Outputs
 extension HomeDetailView: HomeDetailViewProtocol {
     func updateView(with model: CombinedArray) {
-        if let imageURL = model.image {
-            pokemonImage.sd_imageIndicator = SDWebImageActivityIndicator.medium
-            pokemonImage.sd_imageTransition = .fade
-            pokemonImage.sd_setImage(with: URL(string: imageURL))
-        }
+        pokemonImage.setImage(model.image)
         pokemonsName.text = model.name.capitalized
         pokemonAbilities.text = "Skills: \(model.abilities.joined(separator: ", ").capitalized)"
     }
